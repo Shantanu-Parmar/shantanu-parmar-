@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Shantanu Parmar</title>
+<meta name="author" content="Shantanu Parmar">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html"><span class="mark"></span>SHANTANU PARMAR <small>&mdash; SP·26</small></a>
+    <button class="nav-toggle" aria-label="Toggle navigation"><span></span></button>
+    <nav class="primary-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="outreach.html">Outreach</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="cv.html" class="cv-link">CV</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="page-header">
+  <span class="eyebrow">Contact</span>
+  <h1>Get in Touch</h1>
+  <p class="lede">Have questions about my work, or interested in collaborating? Feel free to reach out.</p>
+</div>
+
+<section class="section">
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>Address</h3>
+      <span>Pale Blue Dot<br>RA: 10h 45m 23.3s, Dec: −59° 50′ 33″<br>Local Bubble, Milky Way, Virgo Supercluster<br>Observable Universe</span>
+    </div>
+    <div class="contact-card">
+      <h3>Email</h3>
+      <a href="mailto:sp2733@cornell.edu">sp2733@cornell.edu</a>
+    </div>
+    <div class="contact-card">
+      <h3>Message</h3>
+      <a href="https://formsubmit.co/el/ruboga" target="_blank" rel="noopener">Send a message →</a>
+    </div>
+    <div class="contact-card">
+      <h3>Social</h3>
+      <ul class="icons">
+        <li><a href="https://youtube.com/@explorare_infinitas" target="_blank" rel="noopener" class="fab fa-youtube" aria-label="YouTube"></a></li>
+        <li><a href="https://github.com/Shantanu-Parmar" target="_blank" rel="noopener" class="fab fa-github" aria-label="GitHub"></a></li>
+        <li><a href="https://linkedin.com/in/shantanuparmar/" target="_blank" rel="noopener" class="fab fa-linkedin" aria-label="LinkedIn"></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="border-bottom:none;">
+  <div class="section-head">
+    <span class="eyebrow">Beyond Research</span>
+    <h2>Shan in the Wild</h2>
+    <p>Astrophotography, hiking, and the occasional electronics project.</p>
+  </div>
+  <div class="photo-strip" id="photoStrip"></div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="copy">© 2026 Shantanu Parmar. All rights reserved.</span>
+    <ul class="icons">
+      <li><a href="https://youtube.com/@explorare_infinitas" target="_blank" rel="noopener" class="fab fa-youtube" aria-label="YouTube"></a></li>
+      <li><a href="https://github.com/Shantanu-Parmar" target="_blank" rel="noopener" class="fab fa-github" aria-label="GitHub"></a></li>
+      <li><a href="https://linkedin.com/in/shantanuparmar/" target="_blank" rel="noopener" class="fab fa-linkedin" aria-label="LinkedIn"></a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  const photoStrip = document.getElementById('photoStrip');
+  const hobbyImages = [
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/IMG-20241207-WA0007.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/IMG-20250115-WA0001.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/IMG-20250201-WA0099.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/IMG-20250201-WA0101.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/IMG-20250201-WA0102.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/IMG-20250201-WA0103.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/IMG-20250201-WA0104.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/IMG-20250201-WA0105.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/IMG-20250201-WA0106.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/IMG-20250201-WA0109.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/IMG-20250201-WA0110.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/IMG-20250201-WA0112.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/IMG-20250201-WA0113.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/IMG-20250201-WA0114.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/IMG-20250201-WA0115.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/IMG-20250201-WA0116.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/bike-min.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/end-min.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/lake-min.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/meincanyon-min.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/meinwater-min.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/meinwild-min.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/menearwater-min.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/menexttowater-min.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/museo-min.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/road-min.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/tele1-min.jpg",
+    "https://raw.githubusercontent.com/Shantanu909/Shantanu.Parmar/ee06c9f7f8e47e0226b9630fc891d20bbb6f1076/images/Hobbies/tele2-min.jpg"
+  ];
+  hobbyImages.forEach((src) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = 'Hobby photo';
+    img.loading = 'lazy';
+    photoStrip.appendChild(img);
+  });
+</script>
+</body>
+</html>
