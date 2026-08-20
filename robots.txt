@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shantanu-parmar.github.io/sitemap.xml
