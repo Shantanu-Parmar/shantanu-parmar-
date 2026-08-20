@@ -1,1290 +1,299 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CV — Shantanu Parmar</title>
-<meta name="author" content="Shantanu Parmar">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<style>
-/* ==========================================================================
-   Shantanu Parmar — Academic site
-   Design tokens
-   ========================================================================== */
-:root {
-  /* Color */
-  --ink:        #10192b;   /* primary dark ink — text, nav */
-  --ink-soft:   #2c3a54;   /* secondary ink — subheads */
-  --paper:      #f7f4ec;   /* warm parchment background */
-  --paper-deep: #efe9d9;   /* recessed panel / card background */
-  --paper-line: #d9d0b8;   /* hairline rule on paper */
-  --brass:      #a8703a;   /* primary accent — links, active state */
-  --brass-deep: #7f5326;   /* hover / pressed accent */
-  --crimson:    #7c3230;   /* status: accepted / talk */
-  --pine:       #3c5a44;   /* status: ongoing / oral */
-  --slate:      #5c6270;   /* muted text */
-  --white:      #fffdf8;
-
-  /* Type */
-  --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
-  --font-body: 'Source Sans 3', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
-
-  /* Layout */
-  --content-w: 980px;
-  --wide-w: 1180px;
-  --gutter: clamp(20px, 5vw, 56px);
-}
-
-/* ==========================================================================
-   Reset
-   ========================================================================== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-html {
-  background: var(--paper);
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-body);
-  background: var(--paper);
-  color: var(--ink);
-  line-height: 1.65;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-}
-
-a { color: inherit; }
-img { max-width: 100%; display: block; }
-ul { list-style: none; }
-
-::selection { background: var(--brass); color: var(--white); }
-
-:focus-visible {
-  outline: 2px solid var(--brass);
-  outline-offset: 3px;
-}
-
-/* faint star-field texture, used sparingly behind hero sections */
-.field-tex {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    radial-gradient(1px 1px at 10% 20%, rgba(16,25,43,0.18) 0, transparent 60%),
-    radial-gradient(1px 1px at 80% 10%, rgba(16,25,43,0.14) 0, transparent 60%),
-    radial-gradient(1.5px 1.5px at 60% 65%, rgba(16,25,43,0.16) 0, transparent 60%),
-    radial-gradient(1px 1px at 30% 80%, rgba(16,25,43,0.12) 0, transparent 60%),
-    radial-gradient(1px 1px at 92% 55%, rgba(16,25,43,0.14) 0, transparent 60%),
-    radial-gradient(1.5px 1.5px at 45% 35%, rgba(16,25,43,0.10) 0, transparent 60%);
-  opacity: 0.9;
-}
-
-/* ==========================================================================
-   Eyebrow / catalog-style labels — the page's recurring signature device.
-   Modeled on astronomical object designations (e.g. "SP-01 · RESEARCH").
-   ========================================================================== */
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--brass-deep);
-}
-
-.eyebrow::before {
-  content: '';
-  width: 22px;
-  height: 1px;
-  background: var(--brass-deep);
-  display: inline-block;
-}
-
-/* ==========================================================================
-   Header / Navigation
-   ========================================================================== */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(247, 244, 236, 0.92);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--paper-line);
-}
-
-.nav-wrap {
-  max-width: var(--wide-w);
-  margin: 0 auto;
-  padding: 16px var(--gutter);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.brand {
-  font-family: var(--font-mono);
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-decoration: none;
-  color: var(--ink);
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  white-space: nowrap;
-}
-
-.brand .mark {
-  display: inline-block;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--brass);
-  transform: translateY(-1px);
-}
-
-.brand small {
-  font-size: 11px;
-  color: var(--slate);
-  font-weight: 400;
-}
-
-nav.primary-nav ul {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex-wrap: wrap;
-}
-
-nav.primary-nav a {
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--ink-soft);
-  padding: 8px 12px;
-  border-radius: 3px;
-  transition: color 0.15s ease, background 0.15s ease;
-}
-
-nav.primary-nav a:hover { color: var(--brass-deep); background: var(--paper-deep); }
-
-nav.primary-nav a.active {
-  color: var(--ink);
-  font-weight: 600;
-  box-shadow: inset 0 -2px 0 var(--brass);
-}
-
-nav.primary-nav a.cv-link {
-  border: 1px solid var(--ink);
-  color: var(--ink);
-  margin-left: 6px;
-}
-nav.primary-nav a.cv-link:hover { background: var(--ink); color: var(--white); }
-
-.nav-toggle {
-  display: none;
-  background: none;
-  border: 1px solid var(--ink);
-  width: 38px;
-  height: 34px;
-  border-radius: 3px;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-}
-.nav-toggle span, .nav-toggle span::before, .nav-toggle span::after {
-  content: '';
-  display: block;
-  width: 18px;
-  height: 1.5px;
-  background: var(--ink);
-  position: relative;
-}
-.nav-toggle span::before { position: absolute; top: -6px; }
-.nav-toggle span::after { position: absolute; top: 6px; }
-
-@media (max-width: 880px) {
-  .nav-toggle { display: flex; }
-  nav.primary-nav {
-    display: none;
-    width: 100%;
-    order: 3;
-  }
-  nav.primary-nav.open { display: block; }
-  nav.primary-nav ul { flex-direction: column; align-items: stretch; padding: 10px 0 4px; }
-  nav.primary-nav a { padding: 10px 4px; }
-  .nav-wrap { flex-wrap: wrap; }
-}
-
-/* ==========================================================================
-   Page header (non-home pages)
-   ========================================================================== */
-.page-header {
-  max-width: var(--wide-w);
-  margin: 0 auto;
-  padding: 64px var(--gutter) 40px;
-  border-bottom: 1px solid var(--paper-line);
-}
-
-.page-header h1 {
-  font-family: var(--font-display);
-  font-size: clamp(34px, 5vw, 52px);
-  font-weight: 600;
-  margin-top: 14px;
-  color: var(--ink);
-}
-
-.page-header .lede {
-  font-size: 17px;
-  color: var(--slate);
-  max-width: 640px;
-  margin-top: 14px;
-}
-
-/* ==========================================================================
-   Hero (home page)
-   ========================================================================== */
-.hero {
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid var(--paper-line);
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  max-width: var(--wide-w);
-  margin: 0 auto;
-  padding: 88px var(--gutter) 72px;
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 56px;
-  align-items: center;
-}
-
-.hero h1 {
-  font-family: var(--font-display);
-  font-size: clamp(40px, 6vw, 68px);
-  line-height: 1.04;
-  font-weight: 600;
-  color: var(--ink);
-  margin: 18px 0 20px;
-}
-
-.hero h1 em {
-  font-style: italic;
-  color: var(--brass-deep);
-}
-
-.hero .role {
-  font-size: 18px;
-  color: var(--ink-soft);
-  max-width: 520px;
-  margin-bottom: 26px;
-}
-
-.hero .coords {
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  color: var(--slate);
-  border-top: 1px solid var(--paper-line);
-  padding-top: 16px;
-  margin-top: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.hero-portrait {
-  position: relative;
-  justify-self: center;
-}
-
-.hero-portrait .frame {
-  width: 100%;
-  max-width: 320px;
-  aspect-ratio: 4/5;
-  overflow: hidden;
-  border: 1px solid var(--ink);
-  background: var(--paper-deep);
-  box-shadow: 10px 10px 0 var(--paper-line);
-}
-
-.hero-portrait img { width: 100%; height: 100%; object-fit: cover; }
-
-.hero-portrait .tag {
-  position: absolute;
-  bottom: -14px;
-  left: -14px;
-  background: var(--ink);
-  color: var(--white);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  padding: 6px 10px;
-}
-
-@media (max-width: 780px) {
-  .hero-inner { grid-template-columns: 1fr; padding-top: 56px; }
-  .hero-portrait { order: -1; max-width: 220px; margin: 0 auto; }
-}
-
-/* ==========================================================================
-   Buttons
-   ========================================================================== */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 11px 18px;
-  border: 1px solid var(--ink);
-  color: var(--ink);
-  transition: all 0.15s ease;
-  background: transparent;
-}
-.btn:hover { background: var(--ink); color: var(--white); }
-
-.btn.primary { background: var(--ink); color: var(--white); }
-.btn.primary:hover { background: var(--brass-deep); border-color: var(--brass-deep); }
-
-.btn.small { padding: 7px 12px; font-size: 11.5px; }
-
-/* ==========================================================================
-   Sections / generic content blocks
-   ========================================================================== */
-.section {
-  max-width: var(--wide-w);
-  margin: 0 auto;
-  padding: 56px var(--gutter);
-  border-bottom: 1px solid var(--paper-line);
-}
-
-.section:last-of-type { border-bottom: none; }
-
-.section-head {
-  margin-bottom: 34px;
-  max-width: 640px;
-}
-
-.section-head h2 {
-  font-family: var(--font-display);
-  font-size: clamp(26px, 3.4vw, 36px);
-  font-weight: 600;
-  margin-top: 10px;
-}
-
-.section-head p { color: var(--slate); margin-top: 10px; font-size: 15px; }
-
-/* ==========================================================================
-   Home — highlight strip
-   ========================================================================== */
-.stat-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border: 1px solid var(--ink);
-}
-
-.stat-strip div {
-  padding: 22px 20px;
-  border-right: 1px solid var(--paper-line);
-}
-.stat-strip div:last-child { border-right: none; }
-
-.stat-strip .num {
-  font-family: var(--font-display);
-  font-size: 30px;
-  color: var(--ink);
-}
-.stat-strip .label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--slate);
-  margin-top: 6px;
-}
-
-@media (max-width: 700px) {
-  .stat-strip { grid-template-columns: 1fr 1fr; }
-  .stat-strip div:nth-child(2) { border-right: none; }
-  .stat-strip div:nth-child(1), .stat-strip div:nth-child(2) { border-bottom: 1px solid var(--paper-line); }
-}
-
-/* ==========================================================================
-   Home — focus areas
-   ========================================================================== */
-.focus-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--paper-line);
-  border: 1px solid var(--paper-line);
-}
-
-.focus-card {
-  background: var(--paper);
-  padding: 28px 24px;
-}
-
-.focus-card .idx {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--brass-deep);
-}
-
-.focus-card h3 {
-  font-family: var(--font-display);
-  font-size: 20px;
-  margin: 10px 0 8px;
-}
-
-.focus-card p { font-size: 14.5px; color: var(--slate); }
-
-@media (max-width: 780px) {
-  .focus-grid { grid-template-columns: 1fr; }
-}
-
-/* ==========================================================================
-   About page
-   ========================================================================== */
-.about-layout {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 48px;
-}
-
-.about-layout .portrait {
-  border: 1px solid var(--ink);
-  overflow: hidden;
-  aspect-ratio: 4/5;
-}
-.about-layout .portrait img { width: 100%; height: 100%; object-fit: cover; }
-
-.about-copy p { margin-bottom: 16px; font-size: 15.5px; }
-.about-copy p:last-child { margin-bottom: 0; }
-
-@media (max-width: 720px) {
-  .about-layout { grid-template-columns: 1fr; }
-  .about-layout .portrait { max-width: 240px; margin: 0 auto; }
-}
-
-/* Education timeline */
-.timeline { border-top: 1px solid var(--ink); }
-
-.timeline-item {
-  border-bottom: 1px solid var(--paper-line);
-}
-
-.timeline-head {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px 4px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  font-family: var(--font-body);
-}
-
-.timeline-head .inst {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.timeline-head img {
-  width: 52px;
-  height: 52px;
-  object-fit: contain;
-  background: var(--white);
-  border: 1px solid var(--paper-line);
-  padding: 4px;
-  flex-shrink: 0;
-}
-
-.timeline-head h3 {
-  font-family: var(--font-display);
-  font-size: 19px;
-  font-weight: 600;
-}
-
-.timeline-head .yrs {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--slate);
-  white-space: nowrap;
-}
-
-.timeline-head .chev {
-  font-family: var(--font-mono);
-  color: var(--brass-deep);
-  transition: transform 0.2s ease;
-  flex-shrink: 0;
-}
-
-.timeline-item.open .chev { transform: rotate(45deg); }
-
-.timeline-body {
-  display: none;
-  padding: 0 4px 26px 68px;
-}
-.timeline-item.open .timeline-body { display: block; }
-
-.timeline-body li {
-  font-size: 14px;
-  color: var(--ink-soft);
-  padding: 6px 0;
-  border-bottom: 1px dotted var(--paper-line);
-}
-.timeline-body li:last-child { border-bottom: none; }
-.timeline-body a { color: var(--brass-deep); }
-
-/* Associations */
-.assoc-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.assoc-card {
-  border: 1px solid var(--paper-line);
-  background: var(--paper-deep);
-  padding: 20px;
-  text-align: center;
-}
-
-.assoc-card img { height: 56px; margin: 0 auto 14px; object-fit: contain; }
-.assoc-card p { font-size: 13px; color: var(--ink-soft); }
-.assoc-card b { color: var(--ink); }
-
-/* ==========================================================================
-   Research
-   ========================================================================== */
-.domain-label {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink);
-  border-bottom: 2px solid var(--ink);
-  padding-bottom: 10px;
-  margin: 48px 0 28px;
-}
-.domain-label:first-child { margin-top: 0; }
-
-.research-card {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 30px;
-  padding: 30px 0;
-  border-bottom: 1px solid var(--paper-line);
-}
-.research-card:last-child { border-bottom: none; }
-
-.research-card .media {
-  width: 100%;
-  aspect-ratio: 16/10;
-  overflow: hidden;
-  border: 1px solid var(--ink);
-  background: #000;
-}
-.research-card .media img, .research-card .media video { width: 100%; height: 100%; object-fit: cover; }
-
-.research-card h3 {
-  font-family: var(--font-display);
-  font-size: 19px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
-
-.tag {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.03em;
-  padding: 4px 9px;
-  border: 1px solid currentColor;
-}
-.tag.venue { color: var(--brass-deep); }
-.tag.accepted { color: var(--pine); }
-.tag.talk { color: var(--crimson); }
-.tag.status { color: var(--slate); }
-
-.research-card .meta {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--slate);
-  font-style: normal;
-  margin-bottom: 12px;
-}
-
-.research-card p.abstract { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 14px; }
-
-.link-row { display: flex; flex-wrap: wrap; gap: 10px; }
-.link-row a {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  text-decoration: none;
-  padding: 7px 12px;
-  border: 1px solid var(--ink);
-  color: var(--ink);
-}
-.link-row a:hover { background: var(--ink); color: var(--white); }
-
-@media (max-width: 720px) {
-  .research-card { grid-template-columns: 1fr; }
-}
-
-/* ==========================================================================
-   Projects
-   ========================================================================== */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-}
-
-.project-card {
-  border: 1px solid var(--paper-line);
-  background: var(--white);
-  transition: box-shadow 0.15s ease, transform 0.15s ease;
-}
-.project-card:hover { box-shadow: 6px 6px 0 var(--paper-line); transform: translate(-2px, -2px); }
-
-.project-card .thumb {
-  aspect-ratio: 16/10;
-  overflow: hidden;
-  border-bottom: 1px solid var(--paper-line);
-  background: var(--paper-deep);
-}
-.project-card .thumb img { width: 100%; height: 100%; object-fit: cover; }
-
-.project-card .body { padding: 18px; }
-.project-card h3 {
-  font-family: var(--font-display);
-  font-size: 16.5px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  min-height: 44px;
-}
-
-.project-card .links { display: flex; gap: 14px; flex-wrap: wrap; }
-.project-card .links a {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  text-transform: uppercase;
-  color: var(--brass-deep);
-  text-decoration: none;
-}
-.project-card .links a:hover { text-decoration: underline; }
-
-/* ==========================================================================
-   Outreach
-   ========================================================================== */
-.outreach-group h3 {
-  font-family: var(--font-display);
-  font-size: 20px;
-  margin: 40px 0 16px;
-}
-.outreach-group:first-child h3 { margin-top: 0; }
-
-.talk-list li {
-  border-bottom: 1px solid var(--paper-line);
-  padding: 14px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.talk-list li:last-child { border-bottom: none; }
-
-.talk-list .title { font-size: 14.5px; color: var(--ink-soft); flex: 1; min-width: 220px; }
-
-.talk-list a.watch {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--brass-deep);
-  border-bottom: 1px solid var(--brass-deep);
-  white-space: nowrap;
-}
-.talk-list a.watch:hover { color: var(--brass); }
-
-/* ==========================================================================
-   Contact
-   ========================================================================== */
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1px;
-  background: var(--paper-line);
-  border: 1px solid var(--paper-line);
-}
-
-.contact-card {
-  background: var(--paper);
-  padding: 26px 22px;
-}
-
-.contact-card h3 {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--brass-deep);
-  margin-bottom: 10px;
-}
-
-.contact-card a, .contact-card span { font-size: 14.5px; color: var(--ink-soft); text-decoration: none; }
-.contact-card a:hover { color: var(--brass-deep); text-decoration: underline; }
-
-.contact-card ul.icons { display: flex; gap: 16px; }
-.contact-card ul.icons a { font-size: 20px; color: var(--ink); }
-.contact-card ul.icons a:hover { color: var(--brass-deep); }
-
-/* Beyond research / hobbies strip */
-.photo-strip {
-  display: flex;
-  gap: 6px;
-  overflow-x: auto;
-  padding-bottom: 6px;
-}
-.photo-strip img {
-  width: 150px;
-  height: 190px;
-  object-fit: cover;
-  border: 1px solid var(--ink);
-  flex-shrink: 0;
-}
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-footer.site-footer {
-  border-top: 1px solid var(--paper-line);
-  padding: 30px var(--gutter) 40px;
-}
-
-.footer-inner {
-  max-width: var(--wide-w);
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.footer-inner .copy {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  color: var(--slate);
-}
-
-.footer-inner ul.icons { display: flex; gap: 16px; }
-.footer-inner ul.icons a { color: var(--ink-soft); font-size: 16px; }
-.footer-inner ul.icons a:hover { color: var(--brass-deep); }
-
-/* ==========================================================================
-   CV page
-   ========================================================================== */
-.cv-head {
-  max-width: var(--wide-w);
-  margin: 0 auto;
-  padding: 64px var(--gutter) 34px;
-  text-align: center;
-  border-bottom: 1px solid var(--paper-line);
-}
-
-.cv-head h1 {
-  font-family: var(--font-display);
-  font-size: clamp(32px, 5vw, 46px);
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.cv-head .meta-row {
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  color: var(--slate);
-  margin-top: 16px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.cv-head .meta-row a { color: var(--brass-deep); text-decoration: none; }
-.cv-head .meta-row a:hover { text-decoration: underline; }
-
-.cv-actions {
-  margin-top: 26px;
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.cv-entry {
-  padding: 18px 4px;
-  border-bottom: 1px dotted var(--paper-line);
-}
-.cv-entry:last-child { border-bottom: none; }
-
-.cv-entry-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.cv-entry h3 {
-  font-family: var(--font-display);
-  font-size: 16.5px;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.cv-entry .date {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  color: var(--slate);
-  white-space: nowrap;
-}
-
-.cv-entry .sub { font-size: 13.5px; color: var(--ink-soft); margin-top: 3px; }
-.cv-entry .sub strong { color: var(--ink); }
-
-.cv-entry ul { margin-top: 9px; padding-left: 18px; }
-.cv-entry li { font-size: 13.5px; color: var(--ink-soft); margin-bottom: 5px; }
-
-.cv-entry .highlight { color: var(--brass-deep); font-weight: 600; }
-.cv-entry a { color: var(--brass-deep); text-decoration: none; }
-.cv-entry a:hover { text-decoration: underline; }
-
-.pub-group { margin-top: 26px; }
-.pub-group:first-child { margin-top: 0; }
-.pub-group h4 {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--brass-deep);
-  margin-bottom: 12px;
-}
-.pub-group ul { padding-left: 18px; }
-.pub-group li { font-size: 13.5px; color: var(--ink-soft); margin-bottom: 10px; line-height: 1.6; }
-.pub-group li small { color: var(--slate); }
-
-@media print {
-  .site-header, .cv-actions, footer.site-footer, .field-tex { display: none !important; }
-  body { background: #fff; }
-  .cv-head, .section { border: none !important; padding: 6px 0 !important; }
-  .cv-entry, .research-card { break-inside: avoid; }
-  a { color: #000 !important; text-decoration: none !important; }
-  .domain-label { color: #000 !important; border-color: #000 !important; }
-}
-
-/* ==========================================================================
-   Utility
-   ========================================================================== */
-.reduced-motion, .no-motion * { transition: none !important; animation: none !important; }
-
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
-}
-
-</style>
+    <title>Shantanu Parmar - CV</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html {
+            min-height: 100vh;
+            background-color: #FFFFFF;
+            background-image: url('https://raw.githubusercontent.com/Shantanu-Parmar/Shantanu-Parmar.github.io/ff69d9cd742e639667b9c7c924a69a395768592d/background.svg');
+            background-attachment: fixed;
+        }
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            color: #000000;
+            line-height: 1.7;
+            scroll-behavior: smooth;
+            margin: 0; padding: 0; min-height: 100vh;
+        }
+        nav {
+            background: linear-gradient(90deg, #000000 0%, #1a1a1a 100%);
+            color: #FFFFFF; padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000;
+            border-bottom: 1px solid #000000; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        nav ul { display: flex; justify-content: center; list-style: none; padding: 0; }
+        nav ul li { margin: 0 25px; }
+        nav ul li a { color: #FFFFFF; text-decoration: none; font-size: 16px; font-weight: 600; letter-spacing: 1px; transition: color 0.3s ease; }
+        nav ul li a:hover { color: #CCCCCC; }
+        .container { max-width: 1000px; margin: 90px auto 30px; padding: 0 20px; }
+        section { background-color: #E0E4E7; padding: 30px; margin-bottom: 25px; border: 1px solid #000000; border-radius: 0; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+        h1 { font-size: 36px; text-align: center; margin-bottom: 10px; }
+        h2 { font-size: 24px; border-bottom: 1px solid #000; padding-bottom: 6px; margin: 25px 0 15px; }
+        h3 { font-size: 18px; margin: 18px 0 8px; font-weight: 700; }
+        p, ul { margin-bottom: 12px; font-size: 15px; }
+        ul { padding-left: 20px; }
+        .back-btn {
+            display: inline-block; background: #000; color: #FFF; padding: 10px 18px;
+            text-decoration: none; font-weight: 600; border-radius: 0; margin-bottom: 20px;
+            transition: background 0.3s;
+        }
+        .back-btn:hover { background: #333; }
+        .cv-section { margin-bottom: 30px; }
+        .date { font-style: italic; color: #444; font-size: 14px; }
+        .highlight { color: #0066CC; font-weight: 600; }
+        .small { font-size: 13px; }
+        @media (max-width: 768px) {
+            nav ul { flex-direction: column; text-align: center; }
+            nav ul li { margin: 10px 0; }
+            .container { margin-top: 120px; padding: 0 15px; }
+            h1 { font-size: 30px; }
+        }
+    </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="nav-wrap">
-    <a class="brand" href="index.html"><span class="mark"></span>SHANTANU PARMAR <small>&mdash; SP·26</small></a>
-    <button class="nav-toggle" aria-label="Toggle navigation"><span></span></button>
-    <nav class="primary-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="outreach.html">Outreach</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="cv.html" class="cv-link active">CV</a></li>
-      </ul>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#abt">About</a></li>
+            <li><a href="index.html#Education">Education</a></li>
+            <li><a href="index.html#work">Research</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#outreach">Outreach</a></li>
+            <li><a href="index.html#associations">Associations</a></li>
+            <li><a href="index.html#hobbies">Hobbies</a></li>
+            <li><a href="index.html#Contact">Contact</a></li>
+            <li><a href="cv.html" style="color: #00CCFF; font-weight: 700;">CV</a></li>
+        </ul>
     </nav>
-  </div>
-</header>
 
-<div class="cv-head">
-  <span class="eyebrow" style="justify-content:center;">Curriculum Vitae</span>
-  <h1>Shantanusinh Parmar</h1>
-  <div class="meta-row">
-    <a href="index.html">shantanu-parmar.github.io</a>
-    <a href="mailto:sp2733@cornell.edu">sp2733@cornell.edu</a>
-    <a href="https://linkedin.com/in/shantanuparmar/" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/Shantanu-Parmar" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://orcid.org/0009-0008-1376-0048" target="_blank" rel="noopener">ORCID</a>
-  </div>
-  <div class="cv-actions">
-    <button class="btn primary" onclick="window.print()">Print / Save as PDF</button>
-    <a class="btn" href="index.html">← Back to site</a>
-  </div>
-</div>
+    <div class="container">
 
-<section class="section">
-  <h2 class="domain-label" style="margin-top:0;">Education</h2>
-  <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h3>B.Tech, Information &amp; Communication Technology (ICT)</h3>
-      <span class="date">2022 – 2026</span>
+        <!-- Back Button -->
+        <a href="index.html" class="back-btn">Back to Home</a>
+
+        <!-- Header -->
+        <section>
+            <h1>Shantanusinh Parmar</h1>
+            <!-- <p style="text-align:center; font-size:16px;">
+                <a href="https://shantanu-parmar.github.io" target="_blank">Website</a> • 
+                <a href="https://linkedin.com/in/shantanuparmar/" target="_blank">LinkedIn</a> • 
+                <a href="https://github.com/Shantanu-Parmar" target="_blank">GitHub</a> • 
+                <a href="mailto:shantanu.c.parmar@gmail.com">shantanu.c.parmar@gmail.com</a>
+            </p> -->
+        </section>
+
+        <!-- Education -->
+        <section class="cv-section">
+            <h2>Education</h2>
+            <h3>B.Tech Undergraduate majoring in Information and Communication Technology (ICT)</h3>
+            <p><strong>Marwadi University, Rajkot, Gujarat</strong> <span class="date">[2022 – 2026]</span></p>
+            <p>GPA: <strong>9.35/10 (3.92/4)</strong></p>
+        </section>
+
+        <!-- Work Experience -->
+        <section class="cv-section">
+            <h2>Work Experience</h2>
+
+            <h3>Research Intern (at ASTRA Lab, Cornell University)</span></h3>
+            <p><strong>In–person, Ithaca</strong> <span class="date">January 2026 - Ongoing</span></p>
+            <ul>
+                <li>Performing numerical modeling for Plasma Plume charecterization in Electrospray thrusters.</li>
+            </ul>
+
+            <h3>Software Developer (at SAM laboratory, University of Arizona) <span class="date">Remote</span></h3>
+            <p><span class="date">June - December 2025</span></p>
+            <ul>
+                <li>Worked on a globally deployed sensor array for the World’s Biggest Analog 2025</li>
+                <li>Built the display driver for deployment of the sensor array on a zero-G parabolic flight</li>
+            </ul>
+
+            <h3>Research Intern (at University of Alberta) <span class="date">In–person, Edmonton</span></h3>
+            <p><span class="date">May – August 2024</span></p>
+            <ul>
+                <li>Worked on a custom Transformer model for interpreting driving environments using LiDAR point cloud data</li>
+                <li>Gave a 3-minute Thesis Talk and Poster Presentation on my Project</li>
+            </ul>
+
+            <h3>Ion-Propulsion Engineer (at Infinity Space) <span class="date">Remote</span></h3>
+            <p><span class="date">Sept 2023 – Feb 2024</span></p>
+            <ul>
+                <li>Designed a miniaturized ion thruster which will be the chief propulsion for the GraceSAT mission series at Infinity Space</li>
+                <li>Remodeled WHT–44 Hall effect thruster using CAD and performed simulation-based analysis using COMSOL to analyze cathode degradation rate</li>
+            </ul>
+        </section>
+
+        <!-- Awards & Memberships -->
+        <section class="cv-section">
+            <h2>Awards & Memberships</h2>
+            <ul>
+                <li><strong>LISA Symposium Travel Grant Awardee [NASA-GSFC] ($1400)</strong> <span class="date">April 2026</span></li>
+                <li><strong>Mitacs Globalink Research Internship Awardee ($9900)</strong> <span class="date">May – August 2024</span></li>
+                <li><strong>LISA - Laser Interferometer Space Antenna Consortium (Community Member and LECS Mentee)</strong> <span class="date">May 2025 – Present</span></li>
+                <li><strong>American Physical Society (Matching Membership Fellow)</strong> <span class="date">Dec 2023 – Present</span></li>
+                <li><strong>NASA Habitable Worlds Observatory – Dark Matter Sub-Working Group</strong> <span class="date">March – Dec 2024</span></li>
+                <li><strong>Stanford Startup Society Member</strong> <span class="date">January – July 2024</span></li>
+            </ul>
+        </section>
+
+        <!-- Teaching Experience -->
+        <section class="cv-section">
+            <h2>Teaching Experience</h2>
+            <h3>Graduate course on Hall Effect Thrusters (Electric Propulsion)</h3>
+            <p><span class="date">Feb 2025 – Present</span></p>
+            <ul>
+                <li>Collaborating with Dr. Dan Lev (HPEPL, Georgia Tech) on developing a graduate-level course on Hall Effect Thrusters</li>
+                <li>Performed finite element simulations (FEMM) and developed an estimator tool for calculating solenoid design parameters in HETs</li>
+            </ul>
+            
+            <h3>Google Developer Students University Chapter(Data Science Core team Lead)</h3>
+            <p><span class="date">August 2023- 2024</span></p>
+            <ul>
+                <li>Hosted Data Science workshops to engage and involve students in activities pertaining to Data Analysis, Data Visualization and elementary Data Management.</li>
+                <li>Designed and organized a Data Science Hackathon to gamify data vizulization basics for freshmen from across the university.</li>
+            </ul>
+            
+            <h3>SchoolHouse SAT Bootcamp Peer Tutor</h3>
+            <p><span class="date">Feb – April 2024</span></p>
+            <ul>
+                <li>Mentored 6 Junior year High School students for the SAT math section</li>
+            </ul>
+
+            <h3>Student Lab Coordinator: Computing Architecture Lab</h3>
+            <p><span class="date">June – Nov 2023</span></p>
+            <ul>
+                <li>Explored all microcontroller demo boards and learned Assembly coding to host a demo workshop to increase lab reach.</li>
+            </ul>
+
+            
+        </section>
+
+        <!-- Workshops -->
+        <section class="cv-section">
+            <h2>Workshops & Presentations</h2>
+            <ul>
+                <li><strong>American Physical Society Global Physics Summit meeting 2026</strong> <span class="date">March 2026</span> — Oral presentation on Omniformer project</li>
+                <li><strong>Gravitational Wave Physics and Astronomy Workshop 2025</strong> <span class="date">December 2025</span> — Abstract for poster presentation was accepted but due to Visa waitlist unable to attend</li>
+                <li><strong>PhysCOS Second Early Career Workshop</strong> <span class="date">September 2025</span></li>
+                <li><strong>2025 Sagan Summer Workshop: Exoplanetary Demographics</strong> <span class="date">July 2025</span> — Presented on a group assigned project amongst 10 other teams</li>
+                <li><strong>Gravitational Wave Open Science Center (GWOSC) Open Data Workshop</strong> <span class="date">May 2025</span></li>
+                <li><strong>Physics of the Cosmos Early Career Workshop</strong> <span class="date">November 2024</span></li>
+            </ul>
+        </section>
+
+        <!-- Research -->
+        <section class="cv-section">
+            <h2>Research</h2>
+
+            <h3>A Comparative Evaluation of Transitional and Full Protoplanetary Disks</h3>
+            <p><span class="date">March 2025 – Present</span> — Supervisor: <strong>Dr. Charles J Law</strong></p>
+            <ul>
+                <li>Imaged and analyzed Submillimeter Array observations of a sample of transition disks</li>
+            </ul>
+
+            <h3>OmniFormer: Context-aware transformer localizing transient noise sources in LIGO</h3>
+            <p><span class="date">Nov 2024 – Present</span> — Supervisor: <strong>Dr. Marco Cavaglia</strong></p>
+            <ul>
+                <li>Designed a transformer model to source transient noise origins in advanced LIGO systems</li>
+                <li>Tested on a curated dataset of 1.2B samples over 12 parameters for the O3a data run</li>
+            </ul>
+            
+            <h3>StrCGAN: A Generative Framework for Stellar Image Restoration</h3>
+            <p><span class="date">Jan – September 2025</span> — <strong>Under peer Review, WACV 2026</strong></p>
+            <ul>
+                <li>Developed a Cyclic GAN optimized for astronomy, targeting low SNR dataset</li>
+                <li>Incorporated 3D convolutional layers to capture volumetric data and depth information for NIR to optical wavelength, all-sky survey groundtruth data</li>
+            </ul>
+            
+            <h3>Benchmarking Deep Learning Object Detection Models on Feature-deficient dataset</h3>
+            <p><span class="date">Dec 2024 – May 2025</span> — <strong>Peer review Accepted, CAIP 2025</strong></p>
+            <ul>
+                <li>Demonstrated that most common detection models with robust benchmarks on standard datasets struggle with Feature-Deficient astronomy data</li>
+            </ul>
+
+            <h3>Utilizing Lidar to quantify the complexities of Autonomous Driving Environments</h3>
+            <p><span class="date">May – August 2024</span> — <strong>In-person, Edmonton, Canada</strong> — Supervisor: <strong>Prof. Karim El-Basyouny</strong></p>
+            <ul>
+                <li>Worked on preprocessing pipelines for integrating LiDAR data into autonomous vehicles</li>
+                <li>Developed ROS scripts to Lidar + IMU sensor fusion data for enhanced point clouds</li>
+            </ul>
+        </section>
+
+        <!-- Non-Research Projects -->
+        <section class="cv-section">
+            <h2>Non-Research Projects</h2>
+
+            <h3>GWeasy: Gravitational Wave Made Easy</h3>
+            <p><span class="date">Dec 2024 – Present</span> — <a href="https://shantanu-parmar.github.io/GWeasy/" target="_blank">GWeasy Website</a></p>
+            <ul>
+                <li>No-code, graphical interface for accessing and working on LIGO GW data for all OS</li>
+                <li>Runs omicron, timeseries plotting, spectrograms and other GW analysis functions</li>
+                <li>Open source project availability to increase community reach and boost GW research</li>
+            </ul>
+
+            <h3>Mobil-Telesco</h3>
+            <p><span class="date">Sept – Dec 2024</span> — <a href="https://shantanu-parmar.github.io/MobilTelesco/" target="_blank">MobilTelesco Website</a></p>
+            <ul>
+                <li>An automated astrophotography mount for all smart phones</li>
+                <li>Designed an automated equatorial mount for universal phone sizes and a Python library for post-processing including stacking</li>
+            </ul>
+
+            <h3>PhysAugNet</h3>
+            <p><span class="date">March – July 2025</span> — <a href="https://github.com/Shantanu-Parmar/PhysAugNet" target="_blank">GitHub</a></p>
+            <ul>
+                <li>VQ-VAE powered augmentation for metal defect segmentation</li>
+                <li>Image augmentation pipeline with thermal warping and granular defect stimulants</li>
+                <li>Leveraged VQ-VAE to enhance training set diversity, by predicting noise characteristics</li>
+            </ul>
+        </section>
+
+        <!-- Publications -->
+        <section class="cv-section">
+            <h2>Publications</h2>
+
+            <h3>Papers</h3>
+            <ul>
+                <li><strong>Parmar, S.</strong>, Parmar, S., Law, C. 2025. An SMA Survey of UV-driven Chemical Tracers in Transition Disks[<span class="highlight">RNAAS Vol 9, No 12</span>] doi.org/10.3847/2515-5172/ae2a22</li>
+                <li><strong>Parmar, S.</strong>, 2025. <em>StrCGAN: A Generative Framework for Stellar Image Restoration.</em> arXiv:2509.19805 [<span class="highlight">Under review, WACV 2026 conference</span>]</li>
+                <li><strong>Parmar, S.</strong>, 2025. <em>Benchmarking Deep Learning-Based Object Detection Models on Feature Deficient Astrophotography Imagery Dataset.</em> arXiv:2508.06537 [<span class="highlight">Accepted, CAIP 2025 Conference</span>]</li>
+            </ul>
+
+            <h3>Patent</h3>
+            <ul>
+                <li>App. No: <strong>202521012075</strong> — <em>ASTROPHOTOGRAPHY ASSISTIVE DEVICE</em> <br>
+                    <small>Verification: <a href="https://iprsearch.ipindia.gov.in/PublicSearch/PublicationSearch/ApplicationStatus" target="_blank">iprsearch.ipindia.gov.in</a></small>
+                </li>
+            </ul>
+
+            <h3>Dataset</h3>
+            <ul>
+                <li><strong>Parmar, S.</strong>, <em>MobilTelesco: A Smartphone based Astrophotography Dataset</em> — <a href="https://doi.org/10.5281/zenodo.16993328" target="_blank">doi.org/10.5281/zenodo.16993328</a></li>
+            </ul>
+
+            <h3>Design Patents</h3>
+            <ul>
+                <li>No: <strong>401766–001</strong> Improved Crop Seeder Box</li>
+                <li>No: <strong>389670–001</strong> Universal Projector Remote Control</li>
+                <li>No: <strong>396984-001</strong> Pipe Flow Monitoring Module</li>
+                <li><small>Verification: <a href="https://search.ipindia.gov.in/DesignApplicationStatus/" target="_blank">search.ipindia.gov.in</a></small></li>
+            </ul>
+            
+            <h3>Copyrights</h3>
+            <ul>
+                <li>Diary No: <strong>33398/2023-CO/SW</strong>A Tool for Educational Interface</li>
+                <li><small>Verification: <a href="https://copyright.gov.in/frmStatus.aspx" target="_blank">copyright.gov.in</a></small></li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer style="background:#000;color:#FFF;text-align:center;padding:15px;margin-top:30px;">
+            © Shantanusinh Parmar. All rights reserved.
+        </footer>
     </div>
-    <p class="sub"><strong>Marwadi University</strong>, Rajkot, Gujarat</p>
-    <ul><li>GPA: 9.35 / 10 (3.92 / 4)</li></ul>
-  </div>
-</section>
-
-<section class="section">
-  <h2 class="domain-label" style="margin-top:0;">Work Experience</h2>
-
-  <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h3>Research Intern — ASTRA Lab, Cornell University</h3>
-      <span class="date">Jan 2026 – Ongoing</span>
-    </div>
-    <p class="sub">In-person, Ithaca</p>
-    <ul><li>Performing numerical modeling for plasma plume characterization in electrospray thrusters</li></ul>
-  </div>
-
-  <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h3>Software Developer — SAM Laboratory, University of Arizona</h3>
-      <span class="date">Jun – Dec 2025</span>
-    </div>
-    <p class="sub">Remote</p>
-    <ul>
-      <li>Worked on a globally deployed sensor array for the World's Biggest Analog 2025</li>
-      <li>Built the display driver for deployment of the sensor array on a zero-G parabolic flight</li>
-    </ul>
-  </div>
-
-  <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h3>Research Intern — University of Alberta</h3>
-      <span class="date">May – Aug 2024</span>
-    </div>
-    <p class="sub">In-person, Edmonton</p>
-    <ul>
-      <li>Worked on a custom transformer model for interpreting driving environments using LiDAR point-cloud data</li>
-      <li>Gave a 3-Minute Thesis talk and poster presentation on the project</li>
-    </ul>
-  </div>
-
-  <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h3>Ion-Propulsion Engineer — Infinity Space</h3>
-      <span class="date">Sep 2023 – Feb 2024</span>
-    </div>
-    <p class="sub">Remote</p>
-    <ul>
-      <li>Designed a miniaturized ion thruster to serve as chief propulsion for the GraceSAT mission series</li>
-      <li>Remodeled the WHT–44 Hall effect thruster in CAD and performed simulation-based analysis in COMSOL to analyze cathode degradation rate</li>
-    </ul>
-  </div>
-</section>
-
-<section class="section">
-  <h2 class="domain-label" style="margin-top:0;">Awards &amp; Memberships</h2>
-
-  <div class="cv-entry">
-    <div class="cv-entry-head"><h3>LISA Symposium Travel Grant Awardee (NASA-GSFC) — $1,400</h3><span class="date">Apr 2026</span></div>
-  </div>
-  <div class="cv-entry">
-    <div class="cv-entry-head"><h3>Mitacs Globalink Research Internship Awardee — $9,900</h3><span class="date">May – Aug 2024</span></div>
-  </div>
-  <div class="cv-entry">
-    <div class="cv-entry-head"><h3>LISA Consortium — Community Member &amp; LECS Mentee</h3><span class="date">May 2025 – Present</span></div>
-  </div>
-  <div class="cv-entry">
-    <div class="cv-entry-head"><h3>American Physical Society — Matching Membership Fellow</h3><span class="date">Dec 2023 – Present</span></div>
-  </div>
-  <div class="cv-entry">
-    <div class="cv-entry-head"><h3>NASA Habitable Worlds Observatory — Dark Matter Sub-Working Group</h3><span class="date">Mar – Dec 2024</span></div>
-  </div>
-  <div class="cv-entry">
-    <div class="cv-entry-head"><h3>Stanford Startup Society Member</h3><span class="date">Jan – Jul 2024</span></div>
-  </div>
-</section>
-
-<section class="section">
-  <h2 class="domain-label" style="margin-top:0;">Teaching Experience</h2>
-
-  <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h3>Graduate Course on Hall Effect Thrusters (Electric Propulsion)</h3>
-      <span class="date">Feb 2025 – Present</span>
-    </div>
-    <ul>
-      <li>Collaborating with Dr. Dan Lev (HPEPL, Georgia Tech) on developing a graduate-level course on Hall effect thrusters</li>
-      <li>Performed finite element simulations (FEMM) and developed an estimator tool for solenoid design parameters in HETs</li>
-    </ul>
-  </div>
-
-  <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h3>Google Developer Student University Chapter — Data Science Core Team Lead</h3>
-      <span class="date">Aug 2023 – 2024</span>
-    </div>
-    <ul>
-      <li>Hosted Data Science workshops to engage students in data analysis, visualization, and elementary data management</li>
-      <li>Designed and organized a Data Science Hackathon to gamify data visualization basics for freshmen across the university</li>
-    </ul>
-  </div>
-
-  <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h3>SchoolHouse SAT Bootcamp — Peer Tutor</h3>
-      <span class="date">Feb – Apr 2024</span>
-    </div>
-    <ul><li>Mentored 6 junior-year high school students for the SAT math section</li></ul>
-  </div>
-
-  <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h3>Student Lab Coordinator — Computing Architecture Lab</h3>
-      <span class="date">Jun – Nov 2023</span>
-    </div>
-    <ul><li>Explored microcontroller demo boards and learned Assembly coding to host a demo workshop increasing lab reach</li></ul>
-  </div>
-</section>
-
-<section class="section">
-  <h2 class="domain-label" style="margin-top:0;">Workshops &amp; Presentations</h2>
-
-  <div class="cv-entry">
-    <div class="cv-entry-head"><h3>American Physical Society Global Physics Summit 2026</h3><span class="date">Mar 2026</span></div>
-    <p class="sub">Oral presentation on the OmniFormer project</p>
-  </div>
-  <div class="cv-entry">
-    <div class="cv-entry-head"><h3>Gravitational Wave Physics and Astronomy Workshop 2025</h3><span class="date">Dec 2025</span></div>
-    <p class="sub">Poster abstract accepted; unable to attend due to visa waitlist</p>
-  </div>
-  <div class="cv-entry">
-    <div class="cv-entry-head"><h3>PhysCOS Second Early Career Workshop</h3><span class="date">Sep 2025</span></div>
-  </div>
-  <div class="cv-entry">
-    <div class="cv-entry-head"><h3>2025 Sagan Summer Workshop: Exoplanetary Demographics</h3><span class="date">Jul 2025</span></div>
-    <p class="sub">Presented a group-assigned project among 10 other teams</p>
-  </div>
-  <div class="cv-entry">
-    <div class="cv-entry-head"><h3>Gravitational Wave Open Science Center (GWOSC) Open Data Workshop</h3><span class="date">May 2025</span></div>
-  </div>
-  <div class="cv-entry">
-    <div class="cv-entry-head"><h3>Physics of the Cosmos Early Career Workshop</h3><span class="date">Nov 2024</span></div>
-  </div>
-</section>
-
-<section class="section">
-  <h2 class="domain-label" style="margin-top:0;">Research</h2>
-
-  <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h3>A Comparative Evaluation of Transitional and Full Protoplanetary Disks</h3>
-      <span class="date">Mar 2025 – Present</span>
-    </div>
-    <p class="sub">Supervisor: <strong>Dr. Charles J. Law</strong></p>
-    <ul><li>Imaged and analyzed Submillimeter Array observations of a sample of transition disks</li></ul>
-  </div>
-
-  <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h3>OmniFormer: Context-Aware Transformer Localizing Transient Noise Sources in LIGO</h3>
-      <span class="date">Nov 2024 – Present</span>
-    </div>
-    <p class="sub">Supervisor: <strong>Dr. Marco Cavaglià</strong></p>
-    <ul>
-      <li>Designed a transformer model to source transient noise origins in advanced LIGO systems</li>
-      <li>Tested on a curated dataset of 1.2B samples over 12 parameters for the O3a data run</li>
-    </ul>
-  </div>
-
-  <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h3>StrCGAN: A Generative Framework for Stellar Image Restoration</h3>
-      <span class="date">Jan – Sep 2025</span>
-    </div>
-    <p class="sub"><span class="highlight">Under peer review, WACV 2026</span></p>
-    <ul>
-      <li>Developed a cyclic GAN optimized for astronomy, targeting low-SNR datasets</li>
-      <li>Incorporated 3D convolutional layers to capture volumetric and depth information for NIR-to-optical, all-sky-survey ground-truth data</li>
-    </ul>
-  </div>
-
-  <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h3>Benchmarking Deep Learning Object Detection Models on a Feature-Deficient Dataset</h3>
-      <span class="date">Dec 2024 – May 2025</span>
-    </div>
-    <p class="sub"><span class="highlight">Peer review accepted, CAIP 2025</span></p>
-    <ul><li>Demonstrated that common detection models, well-benchmarked on standard datasets, struggle with feature-deficient astronomy data</li></ul>
-  </div>
-
-  <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h3>Utilizing LiDAR to Quantify the Complexities of Autonomous Driving Environments</h3>
-      <span class="date">May – Aug 2024</span>
-    </div>
-    <p class="sub">In-person, Edmonton, Canada — Supervisor: <strong>Prof. Karim El-Basyouny</strong></p>
-    <ul>
-      <li>Worked on preprocessing pipelines for integrating LiDAR data into autonomous vehicles</li>
-      <li>Developed ROS scripts to fuse LiDAR + IMU sensor data for enhanced point clouds</li>
-    </ul>
-  </div>
-</section>
-
-<section class="section">
-  <h2 class="domain-label" style="margin-top:0;">Non-Research Projects</h2>
-
-  <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h3>GWeasy: Gravitational Wave Made Easy</h3>
-      <span class="date">Dec 2024 – Present</span>
-    </div>
-    <p class="sub"><a href="https://shantanu-parmar.github.io/GWeasy/" target="_blank" rel="noopener">GWeasy Website →</a></p>
-    <ul>
-      <li>No-code, graphical interface for accessing and working with LIGO GW data, for all OS</li>
-      <li>Runs Omicron, timeseries plotting, spectrograms, and other GW analysis functions</li>
-      <li>Open-sourced to increase community reach and boost GW research</li>
-    </ul>
-  </div>
-
-  <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h3>Mobil-Telesco</h3>
-      <span class="date">Sep – Dec 2024</span>
-    </div>
-    <p class="sub"><a href="https://shantanu-parmar.github.io/MobilTelesco/" target="_blank" rel="noopener">MobilTelesco Website →</a></p>
-    <ul><li>An automated astrophotography mount for smartphones; designed a universal equatorial mount and a Python library for post-processing, including stacking</li></ul>
-  </div>
-
-  <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h3>PhysAugNet</h3>
-      <span class="date">Mar – Jul 2025</span>
-    </div>
-    <p class="sub"><a href="https://github.com/Shantanu-Parmar/PhysAugNet" target="_blank" rel="noopener">GitHub →</a></p>
-    <ul>
-      <li>VQ-VAE-powered augmentation for metal defect segmentation</li>
-      <li>Image augmentation pipeline with thermal warping and granular defect simulants</li>
-      <li>Leveraged VQ-VAE to enhance training-set diversity by predicting noise characteristics</li>
-    </ul>
-  </div>
-</section>
-
-<section class="section" style="border-bottom:none;">
-  <h2 class="domain-label" style="margin-top:0;">Publications</h2>
-
-  <div class="pub-group">
-    <h4>Papers</h4>
-    <ul>
-      <li><strong>Parmar, S.</strong>, Parmar, S., Law, C. 2025. An SMA Survey of UV-Driven Chemical Tracers in Transition Disks. <span class="highlight">RNAAS Vol. 9, No. 12</span> — doi.org/10.3847/2515-5172/ae2a22</li>
-      <li><strong>Parmar, S.</strong>, 2025. StrCGAN: A Generative Framework for Stellar Image Restoration. arXiv:2509.19805 — <span class="highlight">Under review, WACV 2026</span></li>
-      <li><strong>Parmar, S.</strong>, 2025. Benchmarking Deep Learning-Based Object Detection Models on a Feature-Deficient Astrophotography Imagery Dataset. arXiv:2508.06537 — <span class="highlight">Accepted, CAIP 2025</span></li>
-    </ul>
-  </div>
-
-  <div class="pub-group">
-    <h4>Patent</h4>
-    <ul>
-      <li>App. No. <strong>202521012075</strong> — Astrophotography Assistive Device<br>
-        <small>Verification: <a href="https://iprsearch.ipindia.gov.in/PublicSearch/PublicationSearch/ApplicationStatus" target="_blank" rel="noopener">iprsearch.ipindia.gov.in</a></small>
-      </li>
-    </ul>
-  </div>
-
-  <div class="pub-group">
-    <h4>Dataset</h4>
-    <ul>
-      <li><strong>Parmar, S.</strong>, MobilTelesco: A Smartphone-Based Astrophotography Dataset — <a href="https://doi.org/10.5281/zenodo.16993328" target="_blank" rel="noopener">doi.org/10.5281/zenodo.16993328</a></li>
-    </ul>
-  </div>
-
-  <div class="pub-group">
-    <h4>Design Patents</h4>
-    <ul>
-      <li>No. <strong>401766–001</strong> — Improved Crop Seeder Box</li>
-      <li>No. <strong>389670–001</strong> — Universal Projector Remote Control</li>
-      <li>No. <strong>396984–001</strong> — Pipe Flow Monitoring Module</li>
-      <li><small>Verification: <a href="https://search.ipindia.gov.in/DesignApplicationStatus/" target="_blank" rel="noopener">search.ipindia.gov.in</a></small></li>
-    </ul>
-  </div>
-
-  <div class="pub-group">
-    <h4>Copyrights</h4>
-    <ul>
-      <li>Diary No. <strong>33398/2023-CO/SW</strong> — A Tool for Educational Interface</li>
-      <li><small>Verification: <a href="https://copyright.gov.in/frmStatus.aspx" target="_blank" rel="noopener">copyright.gov.in</a></small></li>
-    </ul>
-  </div>
-</section>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <span class="copy">© 2026 Shantanu Parmar. All rights reserved.</span>
-    <ul class="icons">
-      <li><a href="https://youtube.com/@explorare_infinitas" target="_blank" rel="noopener" class="fab fa-youtube" aria-label="YouTube"></a></li>
-      <li><a href="https://github.com/Shantanu-Parmar" target="_blank" rel="noopener" class="fab fa-github" aria-label="GitHub"></a></li>
-      <li><a href="https://linkedin.com/in/shantanuparmar/" target="_blank" rel="noopener" class="fab fa-linkedin" aria-label="LinkedIn"></a></li>
-    </ul>
-  </div>
-</footer>
-
-<script>
-// Mobile nav toggle
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.primary-nav');
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => nav.classList.toggle('open'));
-  }
-
-  // Education / timeline accordion
-  document.querySelectorAll('.timeline-head').forEach((head) => {
-    head.addEventListener('click', () => {
-      head.closest('.timeline-item').classList.toggle('open');
-    });
-  });
-});
-
-</script>
 </body>
 </html>
